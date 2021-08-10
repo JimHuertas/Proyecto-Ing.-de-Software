@@ -41,11 +41,11 @@ En el presente proyecto usamos HTML, CSS ; el gestor de Base de Datos se uso MyS
       </p>
 Se eligió esta clase porque cumple con las características de este, es decir, la Clase Sesion Evento solo se encarga únicamente de recopilar datos como el id de una sesión, el id del evento y la hora de inicio de una evento.
 <p align="center">
-  <img src="/imagenesINGSoft/respUnica3.jpeg" >
+  <img src="/imagenesINGSoft/respUnica4.jpeg" >
       </p>
 El principio de responsabilidad única busca que el código quede encapsulado y exista independencia entre las clases, sus funcionalidades. Al utilizar clases hemos procurado cumplir con este criterio, ya que encapsulamos la funcionalidad de cada una para que realicen una única función. 
 <p align="center">
-  <img src="/imagenesINGSoft/respUnica4.jpeg" >
+  <img src="/imagenesINGSoft/respUnica4.png" >
       </p>
 Por ejemplo, en la imagen se ve que se han independizado las funciones, entre ellas editar la sesión, y otras. Esto también ayuda a la reutilización del código en caso de cambios o mantenimiento. 
 
@@ -57,12 +57,12 @@ Por ejemplo la clase persona es la clase base que utilizaremos  para las clases 
 <p align="center">
   <img src="/imagenesINGSoft/AC1.jpeg" >
       </p>
-* Segregación de la Interfaz
+*  Segregación de la Interfaz
 Mejor tener una clase pequeña y especializada que una muy grande para targuetizar mejor las necesidades.
 Según este principio es mejor tener una clase pequeña y especializada que una muy grande, para poder hacer un mejor objetivo hacia las necesidades del sistema. 
 En nuestro trabajo, hemos procurado seguir esta norma al no sobrecargar las funcionalidades de las clases sin más de lo que se necesite. Por ejemplo en la captura se ve que cada función está dirigida a un único fin, aunque pertenezcan al mismo sistema, estan especializados. 
 <p align="center">
-  <img src="/imagenesINGSoft/segI.jpeg" >
+  <img src="/imagenesINGSoft/segI.png" >
       </p>
 
 * Inversión de dependencia
@@ -76,4 +76,5 @@ En nuestro trabajo, hemos procurado seguir esta norma al no sobrecargar las func
   <img src="/imagenesINGSoft/dep4.jpeg" >
  </p>
 No dependemos de la tecnología que empleamos en la base de datos, ya que la comunicación entre los componentes del sistema es siempre mediante interfaces, y esto nos permite tener libertad a la hora de decidir las implementaciones concretas de cada elemento. Por ejemplo, podríamos cambiar la conexión a la base de datos de mysql a mongodb o postgresql sin afectar a ninguna parte del sistema.
+
 ## Conceptos DDD aplicados
