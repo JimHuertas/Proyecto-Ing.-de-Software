@@ -28,9 +28,26 @@ En el presente proyecto usamos HTML, CSS ; el gestor de Base de Datos se uso MyS
 </p>
 
 ## Práctica de código legible aplicadas
+* Identación consistente
+   Siempre sera una buena praxis mantener una indentación ordenada. No hay un estilo ’mejor’ que todos deberían seguir. En realidad, el mejor estilo, es un estilo consistente. Si se es parte de un equipo o si se está contribuyendo con código a un proyecto, se debe seguir el estilo existente que se está utilizando en ese proyecto.También vale la pena señalar que es una buena idea mantener su estilo de identación de una manera coherente.
+   
+* Agrupación de código
+   Casi siempre ciertas tareas requieren unas pocas líneas de código. Es una buena idea mantener estas tareas dentro de bloques separados de código, con algunos espacios entre ellos.
+* Organización de archivos y carpetas
+  Técnicamente, se podría escribir el código de una aplicación completo dentro de un solo archivo. Pero eso resultaría en una pesadilla para leer y mantener.
+  Es por ello que siguiendo el MVC se organizaron las carpetas y archivos. 
+* Comentar y Documentar 
+    Para un mejor entendimiento por parte de quien visualice el codigo, se ha comentado las funciones importantes.
+* Longitud límite de línea
+   Es menos cansado leer 5 filas de amplitud corta que un largo texto a ras de hoja, por ello es una buena prática evitar escribir líneas largas y horizontales.
 
 ## Estilos de Programación aplicados
+* Estilo de indentación
 * Programacion Orientada a Objetos
+* Código mantenible
+   Esto quiere decir que pueda ser actualizado cada cierto tiempo y que así el programa perdure.
+* Capitalizar Palabras Especiales de SQL
+   La interacción de bases de datos es una gran parte de la mayoría de las aplicaciones web. Si está escribiendo consultas SQL sin procesar, es una buena idea mantenerlas    legibles también. A pesar de que las palabras especiales y los nombres de funciones de SQL no distinguen entre mayúsculas y minúsculas, es una práctica común escribirlas en mayúsculas para distinguirlas de sus nombres de tabla y columna.
 
 ## Principios SOLID aplicados
 * Single-responsability : El principio de responsabilidad única ( SRP ) es un principio de programación de computadoras que establece que cada módulo , clase o función en un programa de computadora debe tener responsabilidad sobre una sola parte de la funcionalidad de ese programa , y debe encapsular esa parte. Todo eso de la función módulo, clase o servicios deben estar alineados estrechamente con esa responsabilidad.
