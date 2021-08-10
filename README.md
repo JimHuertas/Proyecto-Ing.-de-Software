@@ -28,25 +28,30 @@ En el presente proyecto usamos HTML, CSS ; el gestor de Base de Datos se uso MyS
 </p>
 
 ## Práctica de código legible aplicadas
-* Identación consistente
+* Identación consistente:
+
    Siempre sera una buena praxis mantener una indentación ordenada. No hay un estilo ’mejor’ que todos deberían seguir. En realidad, el mejor estilo, es un estilo consistente. Si se es parte de un equipo o si se está contribuyendo con código a un proyecto, se debe seguir el estilo existente que se está utilizando en ese proyecto.También vale la pena señalar que es una buena idea mantener su estilo de identación de una manera coherente.
    
-* Agrupación de código
+* Agrupación de código:
+
    Casi siempre ciertas tareas requieren unas pocas líneas de código. Es una buena idea mantener estas tareas dentro de bloques separados de código, con algunos espacios entre ellos.
-* Organización de archivos y carpetas
+* Organización de archivos y carpetas:
+
   Técnicamente, se podría escribir el código de una aplicación completo dentro de un solo archivo. Pero eso resultaría en una pesadilla para leer y mantener.
   Es por ello que siguiendo el MVC se organizaron las carpetas y archivos. 
-* Comentar y Documentar 
+* Comentar y Documentar: 
+
     Para un mejor entendimiento por parte de quien visualice el codigo, se ha comentado las funciones importantes.
-* Longitud límite de línea
+* Longitud límite de línea:
+
    Es menos cansado leer 5 filas de amplitud corta que un largo texto a ras de hoja, por ello es una buena prática evitar escribir líneas largas y horizontales.
 
 ## Estilos de Programación aplicados
 * Estilo de indentación
 * Programacion Orientada a Objetos
-* Código mantenible
+* Código mantenible: 
    Esto quiere decir que pueda ser actualizado cada cierto tiempo y que así el programa perdure.
-* Capitalizar Palabras Especiales de SQL
+* Capitalizar Palabras Especiales de SQL: 
    La interacción de bases de datos es una gran parte de la mayoría de las aplicaciones web. Si está escribiendo consultas SQL sin procesar, es una buena idea mantenerlas    legibles también. A pesar de que las palabras especiales y los nombres de funciones de SQL no distinguen entre mayúsculas y minúsculas, es una práctica común escribirlas en mayúsculas para distinguirlas de sus nombres de tabla y columna.
 
 ## Principios SOLID aplicados
@@ -68,7 +73,7 @@ El principio de responsabilidad única busca que el código quede encapsulado y 
       </p>
 Por ejemplo, en la imagen se ve que se han independizado las funciones, entre ellas editar la sesión, y otras. Esto también ayuda a la reutilización del código en caso de cambios o mantenimiento. 
 
-* Open-Closed
+* Open-Closed:
 Entonces una clase debe quedar abierto para extensión y cerrado para modificación. Para añadir funcionalidades debe escribirse nuevo código, no modificar código existente, escribir código que no se tenga que cambiar cada vez que cambian los requerimientos . Ej con herencia y polimorfismo
 
 Por ejemplo la clase persona es la clase base que utilizaremos  para las clases usuario y ponente
@@ -76,7 +81,7 @@ Por ejemplo la clase persona es la clase base que utilizaremos  para las clases 
 <p align="center">
   <img src="/imagenesINGSoft/AC1.jpeg" >
       </p>
-*  Segregación de la Interfaz
+*  Segregación de la Interfaz: 
 Mejor tener una clase pequeña y especializada que una muy grande para targuetizar mejor las necesidades.
 Según este principio es mejor tener una clase pequeña y especializada que una muy grande, para poder hacer un mejor objetivo hacia las necesidades del sistema. 
 En nuestro trabajo, hemos procurado seguir esta norma al no sobrecargar las funcionalidades de las clases sin más de lo que se necesite. Por ejemplo en la captura se ve que cada función está dirigida a un único fin, aunque pertenezcan al mismo sistema, estan especializados. 
@@ -84,7 +89,7 @@ En nuestro trabajo, hemos procurado seguir esta norma al no sobrecargar las func
   <img src="/imagenesINGSoft/segI.png" >
       </p>
 
-* Inversión de dependencia
+* Inversión de dependencia: 
   El principio de inversión de dependencia busca reducir el acople entre sistemas de software. 
   En nuestro caso, el sistema independiza la tecnología de bases de datos, ya que podríamos migrar con facilidad a otro sistema de bases de datos, pues utilizamos el framework Laravel, donde existe una abstracción que nos permite cambiar el tipo de BD utilizada mediante modificar algunos datos de forma sencilla. Esto nos brinda libertad para la implementación y cambiar de tecnología de BD afectando mínimamente las partes del sistema
 
