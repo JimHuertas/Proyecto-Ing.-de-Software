@@ -36,18 +36,44 @@ En el presente proyecto usamos HTML, CSS ; el gestor de Base de Datos se uso MyS
   -  "Una clase debe tener solo una razón para cambiar"
  Se eligió esta clase porque cumple con las características de este, es decir, la Clase User se encarga únicamente de recopilar la información de una persona como nombre, email, password.
   <p align="center">
-  <img src="1_P3oONz9Da3Tc1w97fMV73Q.png" width="650" >
+  <img src="/imagenesINGSoft/respUnica1.jpeg" >
+  <img src="/imagenesINGSoft/respUnica2.jpeg" >
       </p>
-
+Se eligió esta clase porque cumple con las características de este, es decir, la Clase Sesion Evento solo se encarga únicamente de recopilar datos como el id de una sesión, el id del evento y la hora de inicio de una evento.
+<p align="center">
+  <img src="/imagenesINGSoft/respUnica3.jpeg" >
+      </p>
+El principio de responsabilidad única busca que el código quede encapsulado y exista independencia entre las clases, sus funcionalidades. Al utilizar clases hemos procurado cumplir con este criterio, ya que encapsulamos la funcionalidad de cada una para que realicen una única función. 
+<p align="center">
+  <img src="/imagenesINGSoft/respUnica4.jpeg" >
+      </p>
+Por ejemplo, en la imagen se ve que se han independizado las funciones, entre ellas editar la sesión, y otras. Esto también ayuda a la reutilización del código en caso de cambios o mantenimiento. 
 
 * Open-Closed
+Entonces una clase debe quedar abierto para extensión y cerrado para modificación. Para añadir funcionalidades debe escribirse nuevo código, no modificar código existente, escribir código que no se tenga que cambiar cada vez que cambian los requerimientos . Ej con herencia y polimorfismo
 
+Por ejemplo la clase persona es la clase base que utilizaremos  para las clases usuario y ponente
+
+<p align="center">
+  <img src="/imagenesINGSoft/AC1.jpeg" >
+      </p>
 * Segregación de la Interfaz
+Mejor tener una clase pequeña y especializada que una muy grande para targuetizar mejor las necesidades.
+Según este principio es mejor tener una clase pequeña y especializada que una muy grande, para poder hacer un mejor objetivo hacia las necesidades del sistema. 
+En nuestro trabajo, hemos procurado seguir esta norma al no sobrecargar las funcionalidades de las clases sin más de lo que se necesite. Por ejemplo en la captura se ve que cada función está dirigida a un único fin, aunque pertenezcan al mismo sistema, estan especializados. 
+<p align="center">
+  <img src="/imagenesINGSoft/segI.jpeg" >
+      </p>
 
 * Inversión de dependencia
   El principio de inversión de dependencia busca reducir el acople entre sistemas de software. 
   En nuestro caso, el sistema independiza la tecnología de bases de datos, ya que podríamos migrar con facilidad a otro sistema de bases de datos, pues utilizamos el framework Laravel, donde existe una abstracción que nos permite cambiar el tipo de BD utilizada mediante modificar algunos datos de forma sencilla. Esto nos brinda libertad para la implementación y cambiar de tecnología de BD afectando mínimamente las partes del sistema
 
-
-
+<p align="center">
+  <img src="/imagenesINGSoft/dep1.jpeg" >
+  <img src="/imagenesINGSoft/dep2.jpeg" >
+  <img src="/imagenesINGSoft/dep3.jpeg" >
+  <img src="/imagenesINGSoft/dep4.jpeg" >
+ </p>
+No dependemos de la tecnología que empleamos en la base de datos, ya que la comunicación entre los componentes del sistema es siempre mediante interfaces, y esto nos permite tener libertad a la hora de decidir las implementaciones concretas de cada elemento. Por ejemplo, podríamos cambiar la conexión a la base de datos de mysql a mongodb o postgresql sin afectar a ninguna parte del sistema.
 ## Conceptos DDD aplicados
