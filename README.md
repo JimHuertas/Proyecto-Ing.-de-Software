@@ -34,6 +34,9 @@ En el presente proyecto usamos HTML, CSS ; el gestor de Base de Datos se uso MyS
 * Single-responsability : El principio de responsabilidad única ( SRP ) es un principio de programación de computadoras que establece que cada módulo , clase o función en un programa de computadora debe tener responsabilidad sobre una sola parte de la funcionalidad de ese programa , y debe encapsular esa parte. Todo eso de la función módulo, clase o servicios deben estar alineados estrechamente con esa responsabilidad.
   - Si una Clase tiene muchas responsabilidades, aumenta la posibilidad de errores porque hacer cambios en una de sus responsabilidades podría afectar a las otras sin que usted     lo sepa.
   -  "Una clase debe tener solo una razón para cambiar"
+  <p align="center">
+  <img src="1_P3oONz9Da3Tc1w97fMV73Q.png" width="650" >
+      </p>
   -  EJEMPLO:
      Martin define una responsabilidad como una razón para cambiar y concluye que una clase o módulo debe tener una, y solo una, razón para cambiar (por ejemplo, reescribir). Como ejemplo, considere un módulo que compila e imprime un informe. Imagine que un módulo de este tipo se puede cambiar por dos razones. Primero, el contenido del informe podría cambiar. En segundo lugar, el formato del informe podría cambiar. Estas dos cosas cambian por diferentes causas. El principio de responsabilidad única dice que estos dos aspectos del problema son en realidad dos responsabilidades separadas y, por lo tanto, deberían estar en clases o módulos separados. Sería un mal diseño acoplar dos cosas que cambian por diferentes razones en diferentes momentos.
 La razón por la que es importante mantener una clase enfocada en una sola preocupación es que hace que la clase sea más sólida. Continuando con el ejemplo anterior, si hay un cambio en el proceso de compilación del informe, existe un mayor peligro de que el código de impresión se rompa si es parte de la misma clase.
