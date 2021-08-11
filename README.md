@@ -136,9 +136,7 @@ class User extends Authenticatable
 
 
 ```
-  <p align="center">
-  <img src="/imagenesINGSoft/s_user.png" >
-      </p>
+
 Se eligió esta clase porque cumple con las características de este, es decir, la Clase Sesion Evento solo se encarga únicamente de recopilar datos como el id de una sesión, el id del evento y la hora de inicio de una evento.
 <p align="center">
   <img src="/imagenesINGSoft/respUnica4.jpeg" >
