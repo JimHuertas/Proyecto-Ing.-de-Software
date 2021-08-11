@@ -28,120 +28,22 @@ En el presente proyecto usamos HTML, CSS ; el gestor de Base de Datos se uso MyS
 </p>
 
 ## Práctica de código legible aplicadas
-
 * No coloques JS ni CSS en las plantillas Blade y no coloques HTML en clases de PHP
-* Convención de Laravel para los nombres, organización de archivos y carpetas:
-  Se siguen los [estándares PSR](http://www.php-fig.org/psr/psr-2/), también, sigue la convención aceptada por la comunidad. Para la organización de archivos y caroetas , técnicamente, se podría escribir el código de una aplicación completo dentro de un solo archivo. Pero eso resultaría en una pesadilla para leer y mantener. Es por ello que siguiendo el MVC se organizaron las carpetas y archivos. 
-
-
-
-Qué | Cómo | Bueno | Malo
------------- | ------------- | ------------- | -------------
-Controlador | singular | ControladorArticulo | ~~ControladorArticulos~~
-Relaciones hasOne o belongsTo | singular | comentarioArticulo | ~~comentariosArticulo, comentario_articulo~~
-Propiedad de modelo | snake_case | $model->created_at | ~~$model->createdAt~~
-Método | camelCase | traerTodo | ~~traer_todo~~
-Vistas | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
-
-
+* Convención de Laravel para los nombres
 * Utiliza sintaxis cortas y legibles siempre que sea posible
 * No coloques ningún tipo de lógica en los archivos de rutas.
-```php
-// Rutas de evento
-Route::get('evento/mostrar-opciones/{id_sesion}', [EventoController::class, 'showCreateOptions'])->name('evento.mostrarOpciones');
-Route::get('sesion/mostrar/{sesion}', [EventoController::class, 'show'])->name('sesion.mostrar');
-Route::delete('/evento/{evento}', [EventoController::class, 'destroy'])->name('evento.eliminar');
-// Rutas de Concurso
-Route::get('/concurso/crear/{id_sesion}', [ConcursoController::class, 'create'])->name('concurso.crear');
-Route::post('/concurso/guardar/{sesion}', [ConcursoController::class, 'store'])->name('concurso.guardar');
-Route::get('/concurso/editar/{evento}', [ConcursoController::class, 'edit'])->name('concurso.editar');
-Route::put('/concurso/{evento}', [ConcursoController::class, 'update'])->name('concurso.actualizar');
-
-// Rutas de ponencia
-Route::get('/ponencia/crear/{id_sesion}', [PonenciaController::class, 'create'])->name('ponencia.crear');
-Route::post('/ponencia/guardar/{sesion}', [PonenciaController::class, 'store'])->name('ponencia.guardar');
-Route::get('/ponencia/editar/{evento}', [PonenciaController::class, 'edit'])->name('ponencia.editar');
-Route::put('/ponencia/{evento}', [PonenciaController::class, 'update'])->name('ponencia.actualizar');
-
-
-```
-
+* Nombres de las rutas.Usa nombres en línea con las convenciones internas de Laravel:
 * Identación consistente:
 
    Siempre sera una buena praxis mantener una indentación ordenada. No hay un estilo ’mejor’ que todos deberían seguir. En realidad, el mejor estilo, es un estilo consistente. Si se es parte de un equipo o si se está contribuyendo con código a un proyecto, se debe seguir el estilo existente que se está utilizando en ese proyecto.También vale la pena señalar que es una buena idea mantener su estilo de identación de una manera coherente.
-```php
-<?php
-
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use App\Models\Administrador;
-use Auth;
-
-class LoginController extends Controller
-{
-    public function ingresar()
-    {
-        $credenciales = request()->only(['email', 'password']);
-        if (Auth::attempt($credenciales))
-        {
-            request()->session()->regenerate();
-
-            if(Administrador::find(Auth::user()->dni) != NULL)
-                session(['isAdmin' => true]);
-            else
-                session(['isAdmin' => false]);
-
-            return redirect('home');
-        }
-        else
-        {
-            return redirect()->route('login');
-        }    
-    }
-
-    public function salir()
-    {
-        Auth::logout();
-        request()->session()->invalidate();
-        request()->session()->regenerate();
-        return redirect('home');
-    }
-}
-```
-
    
 * Agrupación de código:
 
    Casi siempre ciertas tareas requieren unas pocas líneas de código. Es una buena idea mantener estas tareas dentro de bloques separados de código, con algunos espacios entre ellos.
-```php
-    /**
-     * Muestra opciones para el tipo fe evento que se quiera crear
-     */
-    public function showCreateOptions($id_sesion)
-    {
-        return view('evento.show-create-options', compact('id_sesion'));
-    }
+* Organización de archivos y carpetas:
 
-    /**
-     * Muestra eventos en específico que pertenecen a una sesión
-     */
-    public function show(sesion $sesion)
-    {
-        return view('evento.show', compact('sesion'));
-    }
-
-    
-    /**
-     * Función para eliminar un vento
-     */
-    public function destroy(evento $evento)
-    {
-        $evento->delete();
-        return redirect()->route('home.index');
-    }
-```
-
+  Técnicamente, se podría escribir el código de una aplicación completo dentro de un solo archivo. Pero eso resultaría en una pesadilla para leer y mantener.
+  Es por ello que siguiendo el MVC se organizaron las carpetas y archivos. 
 * Comentar y Documentar: 
 
     Para un mejor entendimiento por parte de quien visualice el codigo, se ha comentado las funciones importantes.
@@ -162,51 +64,10 @@ class LoginController extends Controller
   - Si una Clase tiene muchas responsabilidades, aumenta la posibilidad de errores porque hacer cambios en una de sus responsabilidades podría afectar a las otras sin que usted     lo sepa.
   -  "Una clase debe tener solo una razón para cambiar"
  Se eligió esta clase porque cumple con las características de este, es decir, la Clase User se encarga únicamente de recopilar la información de una persona como nombre, email, password.
- 
- ```php
-<?php
-
-namespace App\Models;
-
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-
-class User extends Authenticatable
-{
-    use HasFactory, Notifiable;
-
-    protected $table = 'persona';
-    public $timestamps = false;
-    protected $primaryKey = 'dni';
-    /**
-     * The attributes that are mass assignable.
-     */
-    protected $fillable = [
-        'nombre',
-        'email',
-        'password',
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     */
-    protected $hidden = [
-        'password',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-}
-
-
-```
-
+  <p align="center">
+  <img src="/imagenesINGSoft/respUnica1.jpeg" >
+  <img src="/imagenesINGSoft/respUnica2.jpeg" >
+      </p>
 Se eligió esta clase porque cumple con las características de este, es decir, la Clase Sesion Evento solo se encarga únicamente de recopilar datos como el id de una sesión, el id del evento y la hora de inicio de una evento.
 <p align="center">
   <img src="/imagenesINGSoft/respUnica4.jpeg" >
@@ -246,5 +107,43 @@ En nuestro trabajo, hemos procurado seguir esta norma al no sobrecargar las func
 No dependemos de la tecnología que empleamos en la base de datos, ya que la comunicación entre los componentes del sistema es siempre mediante interfaces, y esto nos permite tener libertad a la hora de decidir las implementaciones concretas de cada elemento. Por ejemplo, podríamos cambiar la conexión a la base de datos de mysql a mongodb o postgresql sin afectar a ninguna parte del sistema.
 
 ## Conceptos DDD aplicados
+### Modules
+Cada parte del proyecto tiene un dominio que aísla los códigos formados por módulos de clases relacionadas con una funcionalidad de la aplicación.
+<p align="center">
+  <img src="/imagenesINGSoft/dd1.jpeg" >
+ </p>
+### Entites
+Existen diferentes entidades en el Sistema que desarrollamos, entre ellas podríamos mencionar las entidades Ponente, Participante y Evento, ya que son objeto del dominio que mantienen un estado y comportamiento más allá de la ejecución de la aplicación. A continuación se muestra la entidad Ponente.
+<p align="center">
+  <img src="/imagenesINGSoft/dd2.jpeg" >
+ </p>
+
+### Value Objects
+Los Value Objects (VO) son solo valores, no entidades, por si solos no significan nada, tienen que estar acompañados de una entidad para que signifiquen algo o ser interpretados. 
+En nuestro sistema identificamos algunos Value Objects, como el siguiente: 
+<p align="center">
+  <img src="/imagenesINGSoft/dd5.jpeg" >
+ </p>
+La clase SesionEvento si bien aparece como un Entity en realidad solo es un dato que conecta la relacion N-M de las entidades Sesión y Evento y almacena el dato de la hora de Inicio. Sin estas otras entidades perdería sentido por sí misma. Es un Value Object.
+
+### Ubiquitous Language
+Es un concepto de gran importancia porque, además de servir de vehículo de entendimiento en el negocio y entre el negocio e IT, también sirve para identificar las particiones del Domain, que darán lugar a soluciones modulares
+<p align="center">
+  <img src="/imagenesINGSoft/dd6.jpeg" >
+  <img src="/imagenesINGSoft/dd7.jpeg" >
+ </p>
+
+### Aggregates
+Los agregados representan el límite lógico de un conjunto de datos, permiten modelar el sistema en pequeños subconjuntos. Para acceder a los elementos de un agregado debemos acceder mediante una entidad principal, que le sirve a modo de entrada. 
+
+Existe un agregado “Sesión” ya que esta entidad posee relaciones con otras a nivel de negocio y su acceso es mediante la entidad Programa. 
+<p align="center">
+  <img src="/imagenesINGSoft/dd3.jpeg" >
+  <img src="/imagenesINGSoft/dd4.jpeg" >
+ </p>
 
 
+### Repository
+En nuestro proyecto tenemos clases, o más famosamente llamados controladores (MVC), que tienen la función de repositorio, ya que, son los que controlan, dirigen, a la aplicación por dónde debe ir dependiendo de lo que el usuario requiera al interactuar con dicha aplicación.
+
+Un claro ejemplo sería en controlador de Sesión, que guarda diferentes funciones en donde consultamos dichos datos a la base de datos para que luego sean mostrados al usuario.
