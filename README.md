@@ -28,6 +28,12 @@ En el presente proyecto usamos HTML, CSS ; el gestor de Base de Datos se uso MyS
 </p>
 
 ## Práctica de código legible aplicadas
+* No coloques JS ni CSS en las plantillas Blade y no coloques HTML en clases de PHP
+* Convención de Laravel para los nombres
+* Utiliza sintaxis cortas y legibles siempre que sea posible
+* No coloques ningún tipo de lógica en los archivos de rutas.
+* Las funciones y estructuras de control deben seguir el estilo de llaves Allman.El estilo Allman define que la llave de apertura de las estructuras de control DEBE ir en la línea siguiente. La llave de cierre DEBE estar al mismo nivel que la de apertura. Y el cuerpo de la estructura DEBE estar indentado.
+* Nombres de las rutas.Usa nombres en línea con las convenciones internas de Laravel:
 * Identación consistente:
 
    Siempre sera una buena praxis mantener una indentación ordenada. No hay un estilo ’mejor’ que todos deberían seguir. En realidad, el mejor estilo, es un estilo consistente. Si se es parte de un equipo o si se está contribuyendo con código a un proyecto, se debe seguir el estilo existente que se está utilizando en ese proyecto.También vale la pena señalar que es una buena idea mantener su estilo de identación de una manera coherente.
