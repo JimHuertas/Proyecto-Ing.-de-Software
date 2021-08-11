@@ -28,12 +28,12 @@ En el presente proyecto usamos HTML, CSS ; el gestor de Base de Datos se uso MyS
 </p>
 
 ## Práctica de código legible aplicadas
-* No coloques JS ni CSS en las plantillas Blade y no coloques HTML en clases de PHP
-### **Sigue la convención de Laravel para los nombres**
 
- Sigue los [estándares PSR](http://www.php-fig.org/psr/psr-2/).
- 
- También, sigue la convención aceptada por la comunidad:
+* No coloques JS ni CSS en las plantillas Blade y no coloques HTML en clases de PHP
+* Convención de Laravel para los nombres, organización de archivos y carpetas:
+  Se siguen los [estándares PSR](http://www.php-fig.org/psr/psr-2/), también, sigue la convención aceptada por la comunidad. Para la organización de archivos y caroetas , técnicamente, se podría escribir el código de una aplicación completo dentro de un solo archivo. Pero eso resultaría en una pesadilla para leer y mantener. Es por ello que siguiendo el MVC se organizaron las carpetas y archivos. 
+
+
 
 Qué | Cómo | Bueno | Malo
 ------------ | ------------- | ------------- | -------------
@@ -46,7 +46,6 @@ Método | camelCase | traerTodo | ~~traer_todo~~
 Vistas | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
 
 
-* Convención de Laravel para los nombres
 * Utiliza sintaxis cortas y legibles siempre que sea posible
 * No coloques ningún tipo de lógica en los archivos de rutas.
 ```php
@@ -144,10 +143,7 @@ class LoginController extends Controller
         return redirect()->route('home.index');
     }
 ```
-* Organización de archivos y carpetas:
 
-  Técnicamente, se podría escribir el código de una aplicación completo dentro de un solo archivo. Pero eso resultaría en una pesadilla para leer y mantener.
-  Es por ello que siguiendo el MVC se organizaron las carpetas y archivos. 
 * Comentar y Documentar: 
 
     Para un mejor entendimiento por parte de quien visualice el codigo, se ha comentado las funciones importantes.
