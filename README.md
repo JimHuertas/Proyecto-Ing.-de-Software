@@ -49,6 +49,14 @@ Vistas | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_f
 * Convención de Laravel para los nombres
 * Utiliza sintaxis cortas y legibles siempre que sea posible
 * No coloques ningún tipo de lógica en los archivos de rutas.
+```php
+Route::get('/concurso/crear/{id_sesion}', [ConcursoController::class, 'create'])->name('concurso.crear');
+Route::post('/concurso/guardar/{sesion}', [ConcursoController::class, 'store'])->name('concurso.guardar');
+Route::get('/concurso/editar/{evento}', [ConcursoController::class, 'edit'])->name('concurso.editar');
+Route::put('/concurso/{evento}', [ConcursoController::class, 'update'])->name('concurso.actualizar');
+
+```
+
 <p align="center">
   <img src="/imagenesINGSoft/bp-rutas.png" >
       </p>
