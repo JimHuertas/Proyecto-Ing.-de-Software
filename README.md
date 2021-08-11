@@ -50,20 +50,69 @@ Vistas | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_f
 * Utiliza sintaxis cortas y legibles siempre que sea posible
 * No coloques ningún tipo de lógica en los archivos de rutas.
 ```php
+// Rutas de evento
+Route::get('evento/mostrar-opciones/{id_sesion}', [EventoController::class, 'showCreateOptions'])->name('evento.mostrarOpciones');
+Route::get('sesion/mostrar/{sesion}', [EventoController::class, 'show'])->name('sesion.mostrar');
+Route::delete('/evento/{evento}', [EventoController::class, 'destroy'])->name('evento.eliminar');
+// Rutas de Concurso
 Route::get('/concurso/crear/{id_sesion}', [ConcursoController::class, 'create'])->name('concurso.crear');
 Route::post('/concurso/guardar/{sesion}', [ConcursoController::class, 'store'])->name('concurso.guardar');
 Route::get('/concurso/editar/{evento}', [ConcursoController::class, 'edit'])->name('concurso.editar');
 Route::put('/concurso/{evento}', [ConcursoController::class, 'update'])->name('concurso.actualizar');
 
+// Rutas de ponencia
+Route::get('/ponencia/crear/{id_sesion}', [PonenciaController::class, 'create'])->name('ponencia.crear');
+Route::post('/ponencia/guardar/{sesion}', [PonenciaController::class, 'store'])->name('ponencia.guardar');
+Route::get('/ponencia/editar/{evento}', [PonenciaController::class, 'edit'])->name('ponencia.editar');
+Route::put('/ponencia/{evento}', [PonenciaController::class, 'update'])->name('ponencia.actualizar');
+
+
 ```
 
-<p align="center">
-  <img src="/imagenesINGSoft/bp-rutas.png" >
-      </p>
-* Nombres de las rutas.Usa nombres en línea con las convenciones internas de Laravel:
 * Identación consistente:
 
    Siempre sera una buena praxis mantener una indentación ordenada. No hay un estilo ’mejor’ que todos deberían seguir. En realidad, el mejor estilo, es un estilo consistente. Si se es parte de un equipo o si se está contribuyendo con código a un proyecto, se debe seguir el estilo existente que se está utilizando en ese proyecto.También vale la pena señalar que es una buena idea mantener su estilo de identación de una manera coherente.
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\Administrador;
+use Auth;
+
+class LoginController extends Controller
+{
+    public function ingresar()
+    {
+        $credenciales = request()->only(['email', 'password']);
+        if (Auth::attempt($credenciales))
+        {
+            request()->session()->regenerate();
+
+            if(Administrador::find(Auth::user()->dni) != NULL)
+                session(['isAdmin' => true]);
+            else
+                session(['isAdmin' => false]);
+
+            return redirect('home');
+        }
+        else
+        {
+            return redirect()->route('login');
+        }    
+    }
+
+    public function salir()
+    {
+        Auth::logout();
+        request()->session()->invalidate();
+        request()->session()->regenerate();
+        return redirect('home');
+    }
+}
+```
+
    
 * Agrupación de código:
 
