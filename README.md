@@ -93,8 +93,7 @@ Route::put('/concurso/{evento}', [ConcursoController::class, 'update'])->name('c
   -  "Una clase debe tener solo una razón para cambiar"
  Se eligió esta clase porque cumple con las características de este, es decir, la Clase User se encarga únicamente de recopilar la información de una persona como nombre, email, password.
   <p align="center">
-  <img src="/imagenesINGSoft/respUnica1.jpeg" >
-  <img src="/imagenesINGSoft/respUnica2.jpeg" >
+  <img src="/imagenesINGSoft/s_user.png" >
       </p>
 Se eligió esta clase porque cumple con las características de este, es decir, la Clase Sesion Evento solo se encarga únicamente de recopilar datos como el id de una sesión, el id del evento y la hora de inicio de una evento.
 <p align="center">
