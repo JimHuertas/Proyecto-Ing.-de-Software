@@ -38,8 +38,6 @@ En el presente proyecto usamos HTML, CSS ; el gestor de Base de Datos se uso MyS
 Qué | Cómo | Bueno | Malo
 ------------ | ------------- | ------------- | -------------
 Controlador | singular | ControladorArticulo | ~~ControladorArticulos~~
-Nombres de rutas | snake_case con notación de puntos | usuarios.mostrar_activos | ~~usuarios.mostrar-activos, mostrar-usuarios-activos~~
-Modelo | singular | Usuario | ~~Usuarios~~
 Relaciones hasOne o belongsTo | singular | comentarioArticulo | ~~comentariosArticulo, comentario_articulo~~
 Propiedad de modelo | snake_case | $model->created_at | ~~$model->createdAt~~
 Método | camelCase | traerTodo | ~~traer_todo~~
