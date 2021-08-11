@@ -117,6 +117,33 @@ class LoginController extends Controller
 * Agrupación de código:
 
    Casi siempre ciertas tareas requieren unas pocas líneas de código. Es una buena idea mantener estas tareas dentro de bloques separados de código, con algunos espacios entre ellos.
+```php
+    /**
+     * Muestra opciones para el tipo fe evento que se quiera crear
+     */
+    public function showCreateOptions($id_sesion)
+    {
+        return view('evento.show-create-options', compact('id_sesion'));
+    }
+
+    /**
+     * Muestra eventos en específico que pertenecen a una sesión
+     */
+    public function show(sesion $sesion)
+    {
+        return view('evento.show', compact('sesion'));
+    }
+
+    
+    /**
+     * Función para eliminar un vento
+     */
+    public function destroy(evento $evento)
+    {
+        $evento->delete();
+        return redirect()->route('home.index');
+    }
+```
 * Organización de archivos y carpetas:
 
   Técnicamente, se podría escribir el código de una aplicación completo dentro de un solo archivo. Pero eso resultaría en una pesadilla para leer y mantener.
