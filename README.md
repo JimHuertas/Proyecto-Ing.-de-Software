@@ -49,6 +49,9 @@ Vistas | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_f
 * Convención de Laravel para los nombres
 * Utiliza sintaxis cortas y legibles siempre que sea posible
 * No coloques ningún tipo de lógica en los archivos de rutas.
+<p align="center">
+  <img src="/imagenesINGSoft/bp-rutas.png" >
+      </p>
 * Nombres de las rutas.Usa nombres en línea con las convenciones internas de Laravel:
 * Identación consistente:
 
