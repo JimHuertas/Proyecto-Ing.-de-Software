@@ -92,6 +92,50 @@ Route::put('/concurso/{evento}', [ConcursoController::class, 'update'])->name('c
   - Si una Clase tiene muchas responsabilidades, aumenta la posibilidad de errores porque hacer cambios en una de sus responsabilidades podría afectar a las otras sin que usted     lo sepa.
   -  "Una clase debe tener solo una razón para cambiar"
  Se eligió esta clase porque cumple con las características de este, es decir, la Clase User se encarga únicamente de recopilar la información de una persona como nombre, email, password.
+ 
+ ```php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
+class User extends Authenticatable
+{
+    use HasFactory, Notifiable;
+
+    protected $table = 'persona';
+    public $timestamps = false;
+    protected $primaryKey = 'dni';
+    /**
+     * The attributes that are mass assignable.
+     */
+    protected $fillable = [
+        'nombre',
+        'email',
+        'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     */
+    protected $hidden = [
+        'password',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+}
+
+
+```
   <p align="center">
   <img src="/imagenesINGSoft/s_user.png" >
       </p>
