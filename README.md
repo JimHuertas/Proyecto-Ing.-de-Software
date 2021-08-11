@@ -38,29 +38,13 @@ En el presente proyecto usamos HTML, CSS ; el gestor de Base de Datos se uso MyS
 Qué | Cómo | Bueno | Malo
 ------------ | ------------- | ------------- | -------------
 Controlador | singular | ControladorArticulo | ~~ControladorArticulos~~
-Ruta | plural | articulos/1 | ~~articulo/1~~
 Nombres de rutas | snake_case con notación de puntos | usuarios.mostrar_activos | ~~usuarios.mostrar-activos, mostrar-usuarios-activos~~
 Modelo | singular | Usuario | ~~Usuarios~~
 Relaciones hasOne o belongsTo | singular | comentarioArticulo | ~~comentariosArticulo, comentario_articulo~~
-Cualquier otra relación | plural | comentariosArticulo | ~~comentarioArticulo, comentarios_articulo~~
-Tabla | plural | comentarios_articulo | ~~comentario_articulo, comentariosArticulo~~
-Tabla de pivote | Nombres de modelos en singular y en orden alfabético | articulo_usuario | ~~usuario_articulo, articulos_usuarios~~
-Columna de tabla | snake_case sin el nombre del modelo | meta_titulo | ~~MetaTitulo; articulo_meta_titulo~~
 Propiedad de modelo | snake_case | $model->created_at | ~~$model->createdAt~~
-Clave foránea | Nombre en singular del modelo con el sufijo _id | articulo_id | ~~articuloId, id_articulo, articulos_id~~
-Clave primaria | - | id | ~~id_personalizado~~
-Migración | - | 2017_01_01_000000_create_articles_table | ~~2017_01_01_000000_articles~~
 Método | camelCase | traerTodo | ~~traer_todo~~
-Método en controlador de recursos | [table](https://laravel.com/docs/master/controllers#resource-controllers) | guardar | ~~guardarArticulo~~
-Método en clase de pruebas | camelCase | testGuestCannotSeeArticle | ~~test_guest_cannot_see_article~~
-Variable | camelCase | $articulosConAutor | ~~$articulos_con_autor~~
-Colección | descriptiva, plural | $usuariosActivos = Usuario::active()->get() | ~~$activo, $data~~
-Objeto | descriptivo, singular | $usuarioActivo = Usuario::active()->first() | ~~$usuarios, $obj~~
-Índice de archivos de configuración y lenguaje | snake_case | articulos_habilitados | ~~articulosHabilitados; articulos-habilitados~~
 Vistas | kebab-case | show-filtered.blade.php | ~~showFiltered.blade.php, show_filtered.blade.php~~
-Configuración | snake_case | google_calendar.php | ~~googleCalendar.php, google-calendar.php~~
-Contrato (interface) | adjetivo o sustantivo | AuthenticationInterface | ~~Authenticatable, IAuthentication~~
-Trait | adjetivo | Notifiable | ~~NotificationTrait~~
+
 
 * Convención de Laravel para los nombres
 * Utiliza sintaxis cortas y legibles siempre que sea posible
